@@ -3,7 +3,7 @@ services:
   jenkins:
     build:
       context: ./docker
-    image: dotnetjenkins:1.0
+    image: nanghele/dotnetjenkins:1.0
     ports: 
       - "8080:8080"
     volumes:
