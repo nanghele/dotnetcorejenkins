@@ -31,11 +31,11 @@ Let's go on.
 
 After few minutes depending on your machine you will be ready to create your first job. I will skip the congifuration of git account and I will directly go into the compile section of the job . I used this project https://github.com/nanghele/rest_api_dot_net_template where I use Coverlet to provide a coverage report in the format of Cobertura that Jenkins is able to manage.
 ```
-# step 1 execute shell
+# Build step 1 execute shell
 dotnet build
-# step 2 execute shell
+# Build step 2 execute shell
 dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude="[xunit.*]"
-# post build step 
+# Post build step select cobertura report plugin
 cobertura xml report pattern =>  cobertura.coverage.xml
 ```
 <img src='/docs/img/jenkins6.PNG' width=100% >
