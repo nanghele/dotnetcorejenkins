@@ -29,7 +29,7 @@ Let's go on.
 
 <img src='/docs/img/jenkins3.PNG' width=50% >
 
-After few minutes depending on your machine you will be ready to create your first job. I will skip the congifuration of git account and I will directly go into the compile section of the job 
+After few minutes depending on your machine you will be ready to create your first job. I will skip the congifuration of git account and I will directly go into the compile section of the job . I used this project https://github.com/nanghele/rest_api_dot_net_template where I use Coverlet to provide a coverage report in the format of Cobertura that Jenkins is able to manage.
 ```
 # step 1 execute shell
 dotnet build
