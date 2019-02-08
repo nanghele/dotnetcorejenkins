@@ -19,3 +19,27 @@ docker run -p 8080:8080 -v ./jenkins-home:/var/lib/jenkins dotnetjenkins:1.0
 docker-compose up -d
 ```
 In a few seconds you can browse Jenkins on http://localhost:8080
+and you will have to start configuration
+<img src='/docs/img/jenkins1.PNG' width=50% >
+
+Since I would like to get code coverage report I will install the Cobertura plugin and unselect some uneeded plugins.
+<img src='/docs/img/jenkins2.PNG' width=50% > 
+
+Let's go on.
+
+<img src='/docs/img/jenkins3.PNG' width=50% >
+
+After few minutes depending on your machine you will be ready to create your first job. I will skip the congifuration of git account and I will directly go into the compile section of the job 
+```
+# step 1 execute shell
+dotnet build
+# step 2 execute shell
+dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude="[xunit.*]"
+# post build step 
+cobertura xml report pattern =>  cobertura.coverage.xml
+```
+<img src='/docs/img/jenkins6.PNG' width=100% >
+
+and at the end you will get your coverage report
+
+<img src='/docs/img/jenkins7.PNG' width=50% >
